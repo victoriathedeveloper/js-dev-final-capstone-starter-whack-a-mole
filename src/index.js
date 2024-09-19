@@ -144,6 +144,7 @@ function showAndHide(hole, delay){
 *
 */
 function toggleVisibility(hole){
+  hole.classList.toggle("show");
   // TODO: add hole.classList.toggle so that it adds or removes the 'show' class.
   
   return hole;
