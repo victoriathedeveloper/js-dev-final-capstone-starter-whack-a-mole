@@ -66,6 +66,14 @@ if (difficulty === "hard")
  * chooseHole(holes) //> returns one of the 9 holes that you defined
  */
 function chooseHole(holes) {
+  const index = randomInteger(0, 2);
+  const hole = holes[index];
+  if (hole === lastHole) {
+    return chooseHole(holes);
+  }
+  lastHole = hole;
+  return hole;
+  
   // TODO: Write your code here.
 
 }
