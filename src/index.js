@@ -2,8 +2,8 @@ const holes = document.querySelectorAll('.hole');
 const moles = document.querySelectorAll('.mole');
 const startButton = document.querySelector('#start');
 // TODO: Add the missing query selectors:
-const score = document.querySelector('.socre'); // Use querySelector() to get the score element
-const timerDisplay = document.querySelector('.timer'); // use querySelector() to get the timer element.
+const score = document.querySelector('#socre'); // Use querySelector() to get the score element
+const timerDisplay = document.querySelector('#timer'); // use querySelector() to get the timer element.
 
 let time = 0;
 let timer;
@@ -23,12 +23,7 @@ let difficulty = "hard";
 function randomInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-console.log("A random integer between 0 and 10");
-console.log(randomInteger(0, 10));
-console.log("Another random integer between 0 and 10");
-console.log(randomInteger(0, 10));
-console.log("A random number between 600 and 1200");
-console.log(randomInteger(600, 1200));
+
 /**
  * Sets the time delay given a difficulty parameter.
  *
@@ -45,13 +40,16 @@ console.log(randomInteger(600, 1200));
  *
  */
 function setDelay(difficulty) {
- if (difficulty === "easy") 
-  return 1500;
-if (difficulty === "normal")
-  return 1000;
-if (difficulty === "hard")
-  return randomInteger(600, 1200);
+  if (difficulty === "easy") {
+    return 1500;
+  } else if (difficulty === "normal") {
+    return 1000;
+  } else if (difficulty === "hard") {
+    return randomInteger(600, 1200);
+  } else {
+    throw new Error(`Invalid difficulty level: ${difficulty}`);
   }
+}
   // TODO: Write your code here.
   
 
@@ -104,12 +102,12 @@ function chooseHole(holes) {
 *
 */
 function gameOver() {
-  if(time > 0){
-    const timeoutId = showUp();
-    return timeoutId;
+  if(time <= 0){
+    
+    return stopGame();
   } else {
-    let gameStopped = stopGame();
-    return gameStopped;
+    
+    return showUp();
   }
   // TODO: Write your code here
   
@@ -148,7 +146,7 @@ function showAndHide(hole, delay){
     // TODO: call the toggleVisibility function so that it removes the 'show' class when the timer times out.
     toggleVisibility(hole);
     gameOver();
-  },1000); // TODO: change the setTimeout delay to the one provided as a parameter
+  },delay); // TODO: change the setTimeout delay to the one provided as a parameter
   return timeoutID;
 }
 
@@ -183,8 +181,6 @@ function updateScore() {
 }
   // TODO: Write your code here
 
-  return points;
-
 
 /**
 *
@@ -209,6 +205,8 @@ function updateTimer() {
   if (time > 0){
     time -= 1;
     timerDisplay.textContent = time;
+  } else {
+    gameOver(time);
   }
   // TODO: Write your code here.
   // hint: this code is provided to you in the instructions.
@@ -224,7 +222,7 @@ function updateTimer() {
 */
 function startTimer() {
   // TODO: Write your code here
-  setInterval(updateTimer, 1000);
+ timer = setInterval(updateTimer, 1000);
   return timer;
 }
 
@@ -262,7 +260,6 @@ function setEventListeners(){
 *
 */
 function setDuration(duration) {
-  console.log("setDuration");
   time = duration;
   return time;
 }
@@ -286,11 +283,10 @@ function stopGame(){
 *
 */
 function startGame(){
-  showUp();
-  points = 0;
   clearScore();
-  setDuration(30);
+  setDuration(10);
   startTimer();
+  showUp();
   setEventListeners();
   return "game started";
 }
