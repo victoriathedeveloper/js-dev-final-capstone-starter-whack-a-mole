@@ -100,10 +100,10 @@ function chooseHole(holes) {
 */
 function gameOver() {
   if(time > 0){
-    let timeoutId = showUp();
+    const timeoutId = showUp();
     return timeoutId;
   } else {
-    let gamStopped = stopGame();
+    let gameStopped = stopGame();
     return gameStopped;
   }
   // TODO: Write your code here
