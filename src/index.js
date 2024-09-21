@@ -23,7 +23,12 @@ let difficulty = "hard";
 function randomInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
+console.log("A random integer between 0 and 10");
+console.log(randomInteger(0, 10));
+console.log("Another random integer between 0 and 10");
+console.log(randomInteger(0, 10));
+console.log("A random number between 600 and 1200");
+console.log(randomInteger(600, 1200));
 /**
  * Sets the time delay given a difficulty parameter.
  *
@@ -45,7 +50,7 @@ function setDelay(difficulty) {
 if (difficulty === "normal")
   return 1000;
 if (difficulty === "hard")
-  return 856;
+  return randomInteger(600, 1200);
   }
   // TODO: Write your code here.
   
@@ -66,7 +71,7 @@ if (difficulty === "hard")
  * chooseHole(holes) //> returns one of the 9 holes that you defined
  */
 function chooseHole(holes) {
-  const index = randomInteger(0, 2);
+  const index = randomInteger(0, 8);
   const hole = holes[index];
   if (hole === lastHole) {
     return chooseHole(holes);
@@ -143,7 +148,7 @@ function showAndHide(hole, delay){
     // TODO: call the toggleVisibility function so that it removes the 'show' class when the timer times out.
     toggleVisibility(hole);
     gameOver();
-  },0); // TODO: change the setTimeout delay to the one provided as a parameter
+  },1000); // TODO: change the setTimeout delay to the one provided as a parameter
   return timeoutID;
 }
 
@@ -171,12 +176,15 @@ function toggleVisibility(hole){
 *
 */
 function updateScore() {
-  points = points + 1;
-  score.innerHTML = points;
+  console.log("updateScore function called");
+  points += 1;
+  score.textContent = points;
+  return points;
+}
   // TODO: Write your code here
 
   return points;
-}
+
 
 /**
 *
@@ -198,11 +206,9 @@ function clearScore() {
 *
 */
 function updateTimer() {
-  console.log("updateTimer");
   if (time > 0){
     time -= 1;
     timerDisplay.textContent = time;
-    console.log("updateTimer: " + timerDisplay);
   }
   // TODO: Write your code here.
   // hint: this code is provided to you in the instructions.
@@ -217,9 +223,8 @@ function updateTimer() {
 *
 */
 function startTimer() {
-  console.log("startTimer");
   // TODO: Write your code here
-  timer = setInterval(updateTimer, 1000);
+  setInterval(updateTimer, 1000);
   return timer;
 }
 
@@ -232,8 +237,7 @@ function startTimer() {
 *
 */
 function whack(event) {
-  console.log("whack!")
-  points = updateScore()
+  updateScore();
   // TODO: Write your code here.
   // call updateScore()
   return points;
@@ -245,7 +249,6 @@ function whack(event) {
 * for an example on how to set event listeners using a for loop.
 */
 function setEventListeners(){
-  console.log("setEventListeners");
   moles.forEach(mole => mole.addEventListener("click", whack));
   // TODO: Write your code here
 
@@ -259,6 +262,7 @@ function setEventListeners(){
 *
 */
 function setDuration(duration) {
+  console.log("setDuration");
   time = duration;
   return time;
 }
@@ -270,7 +274,7 @@ function setDuration(duration) {
 *
 */
 function stopGame(){
-  // stopAudio(song);  //optional
+  stopAudio(song);  
   clearInterval(timer);
   return "game stopped";
 }
@@ -282,12 +286,17 @@ function stopGame(){
 *
 */
 function startGame(){
-  setDuration(10);
   showUp();
+  points = 0;
+  clearScore();
+  setDuration(30);
+  startTimer();
+  setEventListeners();
   return "game started";
 }
 
 startButton.addEventListener("click", startGame);
+
 
 
 // Please do not modify the code below.
