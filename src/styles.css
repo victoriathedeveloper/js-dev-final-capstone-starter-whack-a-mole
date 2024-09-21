@@ -21,13 +21,31 @@ h1 {
 h2 {
   text-align: center;
   font-size: 40px;
-  color: white;
+  color: rgb(249, 120, 16);
   -webkit-text-stroke: 1px black;
+}
+
+h3 {
+text-align: center;
+font-family:'Gothic', sans-serif;
 }
 
 #start {
     text-align: center;
     font-size: 30px;
+}
+
+.startButton {
+  width: 100px;
+  height: 45px;
+  padding: 0 00px;
+  font-size: 16px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  border: 2px solid #0a0200;
+  background-color: #d84e13;
+  color: #060000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0);
 }
 
 #timer{
