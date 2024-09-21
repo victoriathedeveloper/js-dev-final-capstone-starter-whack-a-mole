@@ -44,10 +44,8 @@ function setDelay(difficulty) {
     return 1500;
   } else if (difficulty === "normal") {
     return 1000;
-  } else if (difficulty === "hard") {
-    return randomInteger(600, 1200);
   } else {
-    throw new Error(`Invalid difficulty level: ${difficulty}`);
+    return randomInteger(600, 1200);
   }
 }
   // TODO: Write your code here.
@@ -174,7 +172,6 @@ function toggleVisibility(hole){
 *
 */
 function updateScore() {
-  console.log("updateScore function called");
   points += 1;
   score.textContent = points;
   return points;
@@ -205,12 +202,7 @@ function updateTimer() {
   if (time > 0){
     time -= 1;
     timerDisplay.textContent = time;
-  } else {
-    gameOver(time);
   }
-  // TODO: Write your code here.
-  // hint: this code is provided to you in the instructions.
-  
   return time;
 }
 
@@ -221,10 +213,10 @@ function updateTimer() {
 *
 */
 function startTimer() {
-  // TODO: Write your code here
- timer = setInterval(updateTimer, 1000);
+  timer = setInterval(updateTimer, 1000);
   return timer;
 }
+
 startTimer();
 /**
 *
