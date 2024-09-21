@@ -225,7 +225,7 @@ function startTimer() {
  timer = setInterval(updateTimer, 1000);
   return timer;
 }
-
+startTimer();
 /**
 *
 * This is the event handler that gets called when a player
