@@ -27,7 +27,6 @@ h2 {
 
 h3 {
 text-align: center;
-font-family:'Gothic', sans-serif;
 }
 
 #start {
@@ -36,15 +35,16 @@ font-family:'Gothic', sans-serif;
 }
 
 .startButton {
-  width: 100px;
-  height: 45px;
+  width: 150px;
+  height: 50px;
   padding: 0 00px;
-  font-size: 16px;
+  font-size: 40px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   text-transform: uppercase;
   border-radius: 5px;
   border: 2px solid #0a0200;
   background-color: #d84e13;
-  color: #060000;
+  color: wheat;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0);
 }
 
