@@ -198,6 +198,12 @@ function clearScore() {
 *
 */
 function updateTimer() {
+  console.log("updateTimer");
+  if (time > 0){
+    time -= 1;
+    timerDisplay.textContent = time;
+    console.log("updateTimer: " + timerDisplay);
+  }
   // TODO: Write your code here.
   // hint: this code is provided to you in the instructions.
   
