@@ -280,7 +280,7 @@ function stopGame(){
 *
 */
 function startGame(){
-  setDuration(10);
+  setDuration(30);
   showUp();
   clearScore(); // Add this line to clear the score
   setEventListeners(); //when click on mole we will increase the score
