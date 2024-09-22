@@ -292,6 +292,8 @@ function startGame(){
   return "game started";
 }
 
+
+
 startButton.addEventListener("click", startGame);
 
 
