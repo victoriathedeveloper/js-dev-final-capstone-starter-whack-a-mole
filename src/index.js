@@ -4,6 +4,8 @@ const startButton = document.querySelector('#start');
 // TODO: Add the missing query selectors:
 const score = document.querySelector('#score'); // Use querySelector() to get the score element
 const timerDisplay = document.querySelector('#timer'); // use querySelector() to get the timer element.
+const backgroundMusic = new Audio('assets/whack-mole-sound.mp3');
+const clickSound = new Audio('assets/hit.mp3');
 
 let time = 0;
 let timer;
@@ -233,7 +235,8 @@ function startTimer() {
 */
 function whack(event) {
   // TODO: Write your code here.
-  updateScore()
+  updateScore();
+  clickSound.play();
   return points;
 }
 
@@ -268,7 +271,7 @@ function setDuration(duration) {
 *
 */
 function stopGame(){
- // stopAudio(song);  //optional
+ //stopAudio(song); 
   clearInterval(timer);
   return "game stopped";
 }
@@ -282,9 +285,10 @@ function stopGame(){
 function startGame(){
   setDuration(30);
   showUp();
+  backgroundMusic.play();
   clearScore(); // Add this line to clear the score
   setEventListeners(); //when click on mole we will increase the score
-  startTimer() // start timer for our game
+  startTimer() // start timer for the game
   return "game started";
 }
 
