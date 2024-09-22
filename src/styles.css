@@ -80,7 +80,7 @@ text-align: center;
   background-size:contain;
   content:'';
   width: 100%;
-  height: 100%;
+  height: 90%;
   position: absolute;
   bottom: -40%;
   z-index: 2;
@@ -89,7 +89,7 @@ text-align: center;
 
 .mole {
   /*background:url('./assets/mole.png') bottom center no-repeat;*/
-  background:url('https://github.com/Thinkful-Ed/js-dev-final-capstone-starter/blob/main/assets/mole.png?raw=true') bottom center no-repeat;
+  background:url("https://github.com/victoriathedeveloper/js-dev-final-capstone-starter-whack-a-mole/blob/main/assets/clown.png?raw=true") bottom center no-repeat;
   background-size: 40%;
   position:absolute;
   top: 100%;
